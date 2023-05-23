@@ -1,0 +1,13 @@
+std_msgs/Header header
+string data_id
+float64 utc_time
+float64 yaw
+string t_sign
+float64 roll
+float64 pitch
+float64 height_error
+float64 roll_std
+float64 pitch_std
+float64 yaw_std
+int16 state
+string cs

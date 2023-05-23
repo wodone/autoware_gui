@@ -1,0 +1,5 @@
+-I/home/ros2/autoware_gui_ws/src/gui
+-I/home/ros2/autoware_gui_ws/src/gui/build
+-o
+/home/ros2/autoware_gui_ws/src/gui/build/include/moc_steerWheel.cpp
+/home/ros2/autoware_gui_ws/src/gui/include/steerWheel.h

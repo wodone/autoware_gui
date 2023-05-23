@@ -1,0 +1,9 @@
+std_msgs/Header header
+string data_id
+float64 utc_time
+float64 pdop
+float64 hdop
+float64 vdop
+float64 tdop
+float64 gdop
+string cs

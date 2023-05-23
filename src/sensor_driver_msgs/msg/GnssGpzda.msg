@@ -1,0 +1,9 @@
+std_msgs/Header header
+string data_id
+float64 utc_time
+int16 time_day
+int16 time_month
+int16 time_year
+int16 time_zone
+int16 time_diff
+string cs

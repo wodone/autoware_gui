@@ -1,0 +1,17 @@
+std_msgs/Header header
+string data_id
+float64 utc_time
+float64 latitude
+string latitude_sign
+float64 longitude
+string longitude_sign
+uint16 state
+uint16 satellite_num
+float64 hdop
+float64 altitude
+string altitude_sign
+float64 altitude_diff
+string altitude_diff_sign
+float64 rtk_delay
+uint16 rtk_id
+string cs

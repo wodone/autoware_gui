@@ -1,0 +1,51 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Icon/Button/select.png</file>
+        <file>Icon/Button/run.png</file>
+        <file>Icon/Button/run_all.png</file>
+        <file>Icon/Button/stop.png</file>
+        <file>Icon/Button/stop_all.png</file>
+        <file>Icon/Button/sendA.png</file>
+        <file>Icon/Button/sendB.png</file>
+        <file>Icon/Button/camera.png</file>
+        <file>Icon/pause.png</file>
+        <file>Icon/yellow.png</file>
+        <file>Icon/red.png</file>
+        <file>Icon/green.png</file>
+    </qresource>
+    <qresource prefix="/Icon">
+        <file>Icon/Icon/console.png</file>
+        <file>Icon/Icon/send.png</file>
+        <file>Icon/Icon/cam.png</file>
+        <file>Icon/Icon/control.png</file>
+        <file>Icon/Icon/data.png</file>
+        <file>Icon/Icon/perception.png</file>
+        <file>Icon/Icon/planning.png</file>
+        <file>Icon/Icon/Localization.png</file>
+        <file>Icon/Icon/steer.png</file>
+        <file>Icon/Icon/angel.png</file>
+        <file>Icon/Icon/direction.png</file>
+        <file>Icon/Icon/elevation.png</file>
+        <file>Icon/Icon/longitude_latitude.png</file>
+        <file>Icon/Icon/speed.png</file>
+    </qresource>
+    <qresource prefix="/widget">
+        <file>Icon/Widget/placeholder.png</file>
+        <file>Icon/Widget/left.png</file>
+        <file>Icon/Widget/right.png</file>
+    </qresource>
+    <qresource prefix="/Image">
+        <file>Icon/Image/advance.png</file>
+        <file>Icon/Image/back.png</file>
+        <file>Icon/Image/park.png</file>
+        <file>Icon/Image/remote_control.png</file>
+        <file>Icon/Image/point.png</file>
+        <file>Icon/Image/car.png</file>
+    </qresource>
+    <qresource prefix="/windows">
+        <file>Icon/windowsIcon.png</file>
+        <file>Icon/ultrasonic.png</file>
+        <file>Icon/lidar.png</file>
+        <file>Icon/set.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,62 @@
+[0.093s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.093s] DEBUG:colcon:Parsed command line arguments: Namespace(ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='sequential', install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7fa6eb92dee0>>, merge_install=False, paths=None, symlink_install=False, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7fa6eb92dee0>, verb_name='build', verb_parser=CustomArgumentParser(prog='colcon build', usage=None, description='Build a set of packages.', formatter_class=<class 'colcon_core.command.CustomFormatter'>, conflict_handler='error', add_help=True))
+[0.107s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.107s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.107s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.107s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/ros2/autoware_gui_ws/src/gui'
+[0.108s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.108s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.108s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.108s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.108s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.115s] DEBUG:colcon.colcon_core.package_identification:Package '.' with type 'ros.ament_cmake' and name 'gui'
+[0.115s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.115s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.115s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.126s] Level 5:colcon.colcon_core.verb:set package 'gui' build argument 'cmake_args' from command line to 'None'
+[0.126s] Level 5:colcon.colcon_core.verb:set package 'gui' build argument 'cmake_target' from command line to 'None'
+[0.126s] Level 5:colcon.colcon_core.verb:set package 'gui' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.126s] Level 5:colcon.colcon_core.verb:set package 'gui' build argument 'cmake_clean_cache' from command line to 'False'
+[0.126s] Level 5:colcon.colcon_core.verb:set package 'gui' build argument 'cmake_clean_first' from command line to 'False'
+[0.126s] Level 5:colcon.colcon_core.verb:set package 'gui' build argument 'cmake_force_configure' from command line to 'False'
+[0.126s] Level 5:colcon.colcon_core.verb:set package 'gui' build argument 'ament_cmake_args' from command line to 'None'
+[0.126s] Level 5:colcon.colcon_core.verb:set package 'gui' build argument 'catkin_cmake_args' from command line to 'None'
+[0.126s] Level 5:colcon.colcon_core.verb:set package 'gui' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.126s] DEBUG:colcon.colcon_core.verb:Building package 'gui' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ros2/autoware_gui_ws/src/gui/build/gui', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ros2/autoware_gui_ws/src/gui/install/gui', 'merge_install': False, 'path': '/home/ros2/autoware_gui_ws/src/gui', 'symlink_install': False, 'test_result_base': None}
+[0.127s] INFO:colcon.colcon_core.executor:Executing jobs using 'sequential' executor
+[0.128s] DEBUG:colcon.colcon_core.executor.sequential:run_until_complete 'gui'
+[0.128s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/ros2/autoware_gui_ws/src/gui' with build type 'ament_cmake'
+[0.128s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/ros2/autoware_gui_ws/src/gui'
+[0.129s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.129s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.132s] ERROR:colcon.colcon_core.shell:Exception in shell extension 'sh': [Errno 17] File exists: '/home/ros2/autoware_gui_ws/src/gui/build/gui'
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/colcon_core/shell/__init__.py", line 302, in get_command_environment
+    return await extension.generate_command_environment(
+  File "/usr/lib/python3/dist-packages/colcon_core/shell/sh.py", line 148, in generate_command_environment
+    expand_template(
+  File "/usr/lib/python3/dist-packages/colcon_core/shell/template/__init__.py", line 49, in expand_template
+    os.makedirs(str(destination_path.parent), exist_ok=True)
+  File "/usr/lib/python3.8/os.py", line 223, in makedirs
+    mkdir(name, mode)
+FileExistsError: [Errno 17] File exists: '/home/ros2/autoware_gui_ws/src/gui/build/gui'
+
+[0.133s] ERROR:colcon.colcon_cmake.task.cmake.build:Could not find a shell extension for the command environment
+[0.133s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(gui)
+[0.135s] Level 1:colcon.colcon_core.environment:checking '/home/ros2/autoware_gui_ws/src/gui/install/gui' for CMake module files
+[0.135s] Level 1:colcon.colcon_core.environment:checking '/home/ros2/autoware_gui_ws/src/gui/install/gui' for CMake config files
+[0.135s] Level 1:colcon.colcon_core.environment:checking '/home/ros2/autoware_gui_ws/src/gui/install/gui/bin'
+[0.135s] Level 1:colcon.colcon_core.environment:checking '/home/ros2/autoware_gui_ws/src/gui/install/gui/lib/pkgconfig/gui.pc'
+[0.135s] Level 1:colcon.colcon_core.environment:checking '/home/ros2/autoware_gui_ws/src/gui/install/gui/lib/python3.8/site-packages'
+[0.136s] Level 1:colcon.colcon_core.environment:checking '/home/ros2/autoware_gui_ws/src/gui/install/gui/bin'
+[0.136s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/ros2/autoware_gui_ws/src/gui/install/gui/share/gui/package.dsv'
+[0.136s] INFO:colcon.colcon_core.shell:Creating package script '/home/ros2/autoware_gui_ws/src/gui/install/gui/share/gui/package.sh'
+[0.137s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/ros2/autoware_gui_ws/src/gui/install/gui/share/colcon-core/packages/gui)
+[0.137s] DEBUG:colcon.colcon_core.executor.sequential:run_until_complete 'gui' finished with '1'
+[0.137s] DEBUG:colcon.colcon_core.executor.sequential:closing loop
+[0.137s] DEBUG:colcon.colcon_core.executor.sequential:loop closed
+[0.137s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[0.137s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[0.138s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/ros2/autoware_gui_ws/src/gui/install/local_setup.sh'
+[0.138s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/ros2/autoware_gui_ws/src/gui/install/_local_setup_util_sh.py'
+[0.138s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/ros2/autoware_gui_ws/src/gui/install/setup.sh'
