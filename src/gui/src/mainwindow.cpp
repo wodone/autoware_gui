@@ -19,6 +19,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 //    setWindowFlags(Qt::Window | Qt::FramelessWindowHint|
 //                   Qt::WindowSystemMenuHint| Qt::WindowMinimizeButtonHint| Qt::WindowMaximizeButtonHint);
+    Camera=new QCamera();
+    mainCamera=new QCameraViewfinder();
     setWindowIcon(QIcon(":/windows/Icon/windowsIcon.png"));
     communicate=new rclcom;
     communicate->start();
@@ -31,9 +33,9 @@ MainWindow::MainWindow(QWidget *parent)
     init_rviz();
     init_carRviz();
     this->showMaximized(); // 最大化窗口
-    cap.open(0); //打开摄像头
-    if(cap.isOpened()) timer_mainCamera->start(30);
-    else QMessageBox::critical(this,"错误","没有检测到主摄像头！");
+//    cap.open(0); //打开摄像头
+//    if(cap.isOpened()) timer_mainCamera->start(30);
+//    else QMessageBox::critical(this,"错误","没有检测到主摄像头！");
 }
 
 MainWindow::~MainWindow()
@@ -209,8 +211,7 @@ void MainWindow::init_ui(){
     con_com->hide();
     //layout_main->addWidget(con_cam,0,0,1,4);
     con_cam->hide();
-    mainCamera=new QLabel(this);
-    mainCamera->setScaledContents(true);
+    //mainCamera->setScaledContents(true);
     con_control=new QWidget(this);
     con_up=new QWidget(this);
     layout_main->addWidget(con_up,0,0,1,4);
@@ -218,6 +219,9 @@ void MainWindow::init_ui(){
     temp_layout_up->setRowStretch(0,5);
     temp_layout_up->setRowStretch(1,1);
     temp_layout_up->addWidget(mainCamera,0,0,2,1);
+    Camera->setViewfinder(mainCamera);
+    mainCamera->setAttribute(Qt::WA_StyledBackground, true);
+    Camera->start();
     //temp_layout_up->addWidget(con_control,1,0,1,1);
     con_up->setLayout(temp_layout_up);
     ui->centralwidget->setLayout(layout_main); //设置主窗口布局
@@ -451,13 +455,16 @@ void MainWindow::init_ui(){
 
 void MainWindow::init_connect(){
     connect(ac_addCamera,SIGNAL(triggered()),this,SLOT(onAction_addCamera()));
+    connect(Camera, &QCamera::statusChanged, [] (QCamera::Status status) {
+        qDebug() << status; // 如果 status 为 QCamera::UnavailableStatus，则说明摄像头不可用，为 QCamera::ActiveStatus 则说明摄像头启动成功
+    });
     connect(timer_mainCamera,&QTimer::timeout,[&](){
-        cap>>image; //读取一帧图像
-        cvtColor(image,image,COLOR_BGR2RGB); //色彩格式转换
-        QPixmap pixmap;
-        pixmap=QPixmap::fromImage(QImage(image.data,image.cols,image.rows,QImage::Format_RGB888)); //转换为QPixmap格式
-        pixmap.scaled(mainCamera->size(),Qt::KeepAspectRatio, Qt::SmoothTransformation); //图片自适应控件大小
-        mainCamera->setPixmap(pixmap);
+//        cap>>image; //读取一帧图像
+//        cvtColor(image,image,COLOR_BGR2RGB); //色彩格式转换
+//        QPixmap pixmap;
+//        pixmap=QPixmap::fromImage(QImage(image.data,image.cols,image.rows,QImage::Format_RGB888)); //转换为QPixmap格式
+//        pixmap.scaled(mainCamera->size(),Qt::KeepAspectRatio, Qt::SmoothTransformation); //图片自适应控件大小
+//        mainCamera->setPixmap(pixmap);
     });
     //connect(communicate,SIGNAL(signal_revSimpleMap(QImage)),Item_map,SLOT(updateMap(QImage))); //连接地图绘制信号和更新地图槽函数
 //    connect(communicate,SIGNAL(signal_revLocation(Location_t)),Item_map,SLOT(updateLocation(Location_t))); //连接车辆位置绘制信号和槽函数
@@ -519,8 +526,8 @@ void MainWindow::update_directionAndAngle(Location_t location){
 }
 
 void MainWindow::update_mainCamera(QPixmap pixmap){
-    qDebug()<<"主摄像头图像更新";
-    mainCamera->setPixmap(pixmap); //更新控件
+//    qDebug()<<"主摄像头图像更新";
+//    mainCamera->setPixmap(pixmap); //更新控件
 }
 
 void MainWindow::init_time(){
