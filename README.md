@@ -6,3 +6,4 @@
 # 第三步：安装窗口控制插件（sudo apt-get install wmctrl）
 # 第四步：修改脚本路径（修改mainwindow.cpp中54行和101行路径为ros工作空间下rviz_car.sh和rviz_localization.sh的绝对路径）
 # 第五步：修改rviz_car.sh和rviz_localization.sh脚本中的rviz配置文件路径为ros工作空间下的localization.rviz的绝对路径
+# 第六步：安装QT媒体库（sudo apt-get install libqt5multimedia5-plugins qtmultimedia5-dev）
