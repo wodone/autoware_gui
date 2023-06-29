@@ -28,7 +28,8 @@ find_package(nav_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(Boost 1.71.0 REQUIRED COMPONENTS thread)
-find_package(Qt5 COMPONENTS Widgets REQUIRED)
+find_package(Qt5 COMPONENTS Widgets Multimedia MultimediaWidgets REQUIRED)
+
 
 # can msgs
 find_package(sensor_driver_msgs REQUIRED)
@@ -60,7 +61,7 @@ add_executable(${PROJECT_NAME}
 )
 
 ament_target_dependencies(${PROJECT_NAME} rclcpp Boost nav_msgs tf2 tf2_ros sensor_msgs sensor_driver_msgs cv_bridge)
-target_link_libraries(${PROJECT_NAME} Qt5::Widgets)
+target_link_libraries(${PROJECT_NAME} Qt5::Widgets Qt5::Multimedia Qt5::MultimediaWidgets)
 install(TARGETS
  gui
  DESTINATION lib/${PROJECT_NAME}
@@ -78,4 +79,3 @@ if(BUILD_TESTING)
 endif()
 
 ament_package()
-
